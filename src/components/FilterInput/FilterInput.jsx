@@ -1,4 +1,4 @@
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 import { Label, Input } from './FilterInput.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterSlice } from 'redux/filterSlice';
@@ -6,7 +6,7 @@ import { setFilterSlice } from 'redux/filterSlice';
 const FilterInput = () => {
   const dispatch = useDispatch();
 
-  const { filter } = useSelector(getFilter);
+  const { filter } = useSelector(selectFilter);
 
   const handleChangeFilter = (event) => {
     dispatch(setFilterSlice(event.currentTarget.value.toLowerCase()));

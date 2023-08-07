@@ -7,13 +7,13 @@ import {
   Button,
 } from './ContactItem.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { delContact } from '../../redux/thunk';
 
 const ContactsItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
     const handleDeleteContact = (userId) => {
-    dispatch(deleteContact(userId));
+    dispatch(delContact(userId));
   };
 
   return (

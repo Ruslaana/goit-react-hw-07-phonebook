@@ -1,10 +1,8 @@
 import { useState } from 'react';
-
 import { Button, Form, Label, InputForm } from './ContactForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from '../../redux/thunk';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -12,18 +10,9 @@ const ContactForm = () => {
 
   const dispatch = useDispatch();
 
-  const { contacts } = useSelector(getContacts);
-
   const handleAddContact = data => {
     const newContact = { ...data, id: nanoid() };
-    const existingContact = contacts.find(
-      contact => contact.name === data.name
-    );
-    if (existingContact) {
-      alert(`${data.name} this contact is already exist`);
-    } else {
-      dispatch(addContact(newContact));
-    }
+    dispatch(addContact(newContact));
   };
 
   const handleChange = event => {

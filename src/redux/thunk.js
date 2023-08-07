@@ -3,8 +3,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://64ce23970c01d81da3ee8ad9.mockapi.io';
 
-export const fetchContacts = createAsyncThunk(
-  'contacts/fetchContacts',
+export const getAllContacts = createAsyncThunk(
+  'contacts/getAllContacts',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
@@ -16,7 +16,7 @@ export const fetchContacts = createAsyncThunk(
 );
 
 export const addContact = createAsyncThunk(
-  'contacts/addContact',
+  'contacts/addContact', 
   async ({ name, number }, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', { name, number });
