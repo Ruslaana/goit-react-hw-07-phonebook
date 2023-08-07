@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { 
-  getAllContacts as fetchAllContacts, 
-  addContact as createContact, 
-  delContact as deleteContact 
+  getAllContacts, 
+  addContact, 
+  delContact 
 } from './thunk';
 
 const initialState = {
@@ -11,9 +11,9 @@ const initialState = {
   error: null,
 };
 
-export const getAllContacts = createAsyncThunk('contacts/getAllContacts', fetchAllContacts);
-export const addContact = createAsyncThunk('contacts/addContact', createContact);
-export const delContact = createAsyncThunk('contacts/delContact', deleteContact);
+// export const getAllContacts = createAsyncThunk('contacts/getAllContacts', fetchAllContacts);
+// export const addContact = createAsyncThunk('contacts/addContact', createContact);
+// export const delContact = createAsyncThunk('contacts/delContact', deleteContact);
 
 const contactsSlice = createSlice({
   name: 'contacts',
